@@ -25,14 +25,17 @@ sed -i 's/192.168.1.1/192.168.0.2/g' package/base-files/files/bin/config_generat
 # Replace the default software source
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
 
+#避免出现下面的警告 提前将mosdns_neo 改为mosdns （2022.08.13目前新版源码貌似已修复此警告）
+sed -i 's/mosdns.*neo/mosdns/g' feeds/kenzo/luci-app-mosdns/Makefile
+
 # 移除要替换的包
-rm -rf feeds/packages/net/mosdns
+#rm -rf feeds/packages/net/mosdns
 #rm -rf feeds/luci/themes/luci-theme-argon
 #rm -rf feeds/luci/themes/luci-theme-netgear
 #rm -rf feeds/luci/applications/luci-app-mosdns
 
 # 添加额外插件
-git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
+#git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
 #git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
 
 # Themes
