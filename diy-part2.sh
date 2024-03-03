@@ -26,7 +26,7 @@ sed -i 's/192.168.1.1/192.168.0.2/g' package/base-files/files/bin/config_generat
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
 
 #避免出现下面的警告 提前将mosdns_neo 改为mosdns （2022.08.13目前新版源码貌似已修复此警告）
-sed -i 's/mosdns.*neo/mosdns/g' feeds/kenzo/luci-app-mosdns/Makefile
+#sed -i 's/mosdns.*neo/mosdns/g' feeds/kenzo/luci-app-mosdns/Makefile
 
 # 移除要替换的包
 #rm -rf feeds/packages/net/mosdns
