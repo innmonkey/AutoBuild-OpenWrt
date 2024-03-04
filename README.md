@@ -56,8 +56,8 @@
 
  ## 特别感谢
 
- - [P3TERX/Actions-OpenWrt]([https://azure.microsoft.com](https://github.com/P3TERX/Actions-OpenWrt))
- - [xinlingduyu/build-openwrt]([https://azure.microsoft.com](https://github.com/xinlingduyu/build-openwrt))
+ - [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt)
+ - [xinlingduyu/build-openwrt](https://github.com/xinlingduyu/build-openwrt)
  - [Microsoft Azure](https://azure.microsoft.com)
  - [GitHub Actions](https://github.com/features/actions)
  - [OpenWrt](https://github.com/openwrt/openwrt)
