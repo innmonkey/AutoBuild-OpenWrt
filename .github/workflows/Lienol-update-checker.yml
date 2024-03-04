@@ -14,7 +14,7 @@ name: Lienol-Update-Checker
 
 env:
   REPO_URL: https://github.com/Lienol/openwrt
-  REPO_BRANCH: master
+  REPO_BRANCH: 22.03
 
 on:
   workflow_dispatch:
