@@ -25,10 +25,10 @@ on:
 env:
   REPO_URL: https://github.com/Lienol/openwrt
   REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: Lienol.config
-  DIY_P1_SH: Lienol-diy-part1.sh
-  DIY_P2_SH: Lienol-diy-part2.sh
+  FEEDS_CONF: config/Lienol/feeds.conf.default
+  CONFIG_FILE: config/Lienol/.config
+  DIY_P1_SH: config/Lienol/diy-part1.sh
+  DIY_P2_SH: config/Lienol/Lienol-diy-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
