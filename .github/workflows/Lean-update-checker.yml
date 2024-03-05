@@ -13,7 +13,7 @@
 name: Lean-Update-Checker
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_URL: https://github.com/Lienol/openwrt
   REPO_BRANCH: master
 
 on:
