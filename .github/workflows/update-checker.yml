@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: Lean-Update-Checker
+name: Update-Checker
 
 env:
   REPO_URL: https://github.com/Lienol/openwrt
