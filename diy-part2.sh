@@ -25,9 +25,6 @@
 # Replace the default software source
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
 
-#避免出现下面的警告 提前将mosdns_neo 改为mosdns （2022.08.13目前新版源码貌似已修复此警告）
-#sed -i 's/mosdns.*neo/mosdns/g' feeds/kenzo/luci-app-mosdns/Makefile
-
 # 移除要替换的包
 #rm -rf feeds/packages/net/mosdns
 #rm -rf feeds/luci/themes/luci-theme-argon
@@ -35,13 +32,19 @@
 #rm -rf feeds/luci/applications/luci-app-mosdns
 
 # 添加额外插件
-#git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
 #git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
+git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
+git clone --depth=1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
+git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
+git_sparse_clone main https://github.com/linkease/istore-ui app-store-ui
+git_sparse_clone main https://github.com/linkease/istore luci
+git_sparse_clone main https://github.com/linkease/nas-packages-luci luci/luci-app-ddnsto
+git_sparse_clone master https://github.com/linkease/nas-packages network/services/ddnsto
 
 # Themes
 #git clone --depth=1 -b 18.06 https://github.com/kiddin9/luci-theme-edge package/luci-theme-edge
 #git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-#git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 
 # 更改 Argon 主题背景
 #cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
