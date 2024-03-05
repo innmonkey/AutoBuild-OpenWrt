@@ -40,6 +40,8 @@ git_sparse_clone main https://github.com/linkease/istore-ui app-store-ui
 git_sparse_clone main https://github.com/linkease/istore luci
 git_sparse_clone main https://github.com/linkease/nas-packages-luci luci/luci-app-ddnsto
 git_sparse_clone master https://github.com/linkease/nas-packages network/services/ddnsto
+git_sparse_clone main https://github.com/linkease/nas-packages-luci luci/luci/luci-app-linkease
+git_sparse_clone master https://github.com/linkease/nas-packages network/services/linkease
 
 # Themes
 #git clone --depth=1 -b 18.06 https://github.com/kiddin9/luci-theme-edge package/luci-theme-edge
