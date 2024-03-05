@@ -35,13 +35,13 @@
 #git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
 git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
 git clone --depth=1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
-git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
-git_sparse_clone main https://github.com/linkease/istore-ui app-store-ui
-git_sparse_clone main https://github.com/linkease/istore luci
-git_sparse_clone main https://github.com/linkease/nas-packages-luci luci/luci-app-ddnsto
-git_sparse_clone master https://github.com/linkease/nas-packages network/services/ddnsto
-git_sparse_clone main https://github.com/linkease/nas-packages-luci luci/luci/luci-app-linkease
-git_sparse_clone master https://github.com/linkease/nas-packages network/services/linkease
+git clone --depth=1 https://github.com/vernesong/OpenClash package/luci-app-openclash
+git clone --depth=1 https://github.com/linkease/istore-ui package/app-store-ui
+git clone --depth=1 https://github.com/linkease/istore luci
+git clone --depth=1 https://github.com/linkease/nas-packages-luci luci/luci-app-ddnsto
+git clone --depth=1 https://github.com/linkease/nas-packages network/services/ddnsto
+git clone --depth=1 https://github.com/linkease/nas-packages-luci luci/luci-app-linkease
+git clone --depth=1 https://github.com/linkease/nas-packages network/services/linkease
 
 # Themes
 #git clone --depth=1 -b 18.06 https://github.com/kiddin9/luci-theme-edge package/luci-theme-edge
