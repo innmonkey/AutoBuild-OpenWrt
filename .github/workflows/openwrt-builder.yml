@@ -140,19 +140,19 @@ jobs:
       with:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
-
+        
     - name: Generate release tag
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
         echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
         touch release.txt
-        echo "
-        💻 架构: x86
+        [ ${UPLOAD_GOFILE} = true && ${{ steps.gofile.outputs.url }} ] && echo "
+        💻 架构: ${{ env.DEVICE_NAME }}
 
-        📂 源码: ${{ REPO_URL }}
+        📂 源码: ${{ env.REPO_URL }}
 
-        🌳 分支: ${{ REPO_BRANCH }}
+        🌳 分支: ${{ env.REPO_BRANCH }}
 
         ⏱️ 编译时间: $(date +"%Y年%m月%d日%H时%M分")
 
@@ -162,7 +162,6 @@ jobs:
 
         🔒 密码: password " >> release.txt
         
-      #  [ ${UPLOAD_GOFILE} = true && ${{ steps.gofile.outputs.url }} ] && echo "🔗 [GoFile](${{ steps.gofile.outputs.url }})" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
 
     - name: Upload firmware to release
