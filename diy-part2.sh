@@ -26,26 +26,20 @@
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
 
 # 移除要替换的包
-rm -rf feeds/packages/net/mosdns
-rm -rf feeds/luci/themes/luci-theme-argon
+#rm -rf feeds/packages/net/mosdns
+#rm -rf feeds/luci/themes/luci-theme-argon
 #rm -rf feeds/luci/themes/luci-theme-netgear
-rm -rf feeds/luci/applications/luci-app-mosdns
+#rm -rf feeds/luci/applications/luci-app-mosdns
 
 # 添加额外插件
 #git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
 git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
 git clone --depth=1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 git clone --depth=1 https://github.com/vernesong/OpenClash package/luci-app-openclash
-git clone --depth=1 https://github.com/linkease/istore-ui package/app-store-ui
-git clone --depth=1 https://github.com/linkease/istore luci
-git clone --depth=1 https://github.com/linkease/nas-packages-luci luci/luci-app-ddnsto
-git clone --depth=1 https://github.com/linkease/nas-packages network/services/ddnsto
-git clone --depth=1 https://github.com/linkease/nas-packages-luci luci/luci-app-linkease
-git clone --depth=1 https://github.com/linkease/nas-packages network/services/linkease
 
 # Themes
 #git clone --depth=1 -b 18.06 https://github.com/kiddin9/luci-theme-edge package/luci-theme-edge
-git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+#git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
 git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
 
 # 更改 Argon 主题背景
@@ -56,3 +50,39 @@ git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/l
 
 # 修改本地时间格式
 #sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' package/lean/autocore/files/*/index.htm
+
+echo "
+# 额外组件
+CONFIG_GRUB_IMAGES=y
+CONFIG_VMDK_IMAGES=y
+
+# openclash
+CONFIG_PACKAGE_luci-app-openclash=y
+CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y
+
+# adguardhome
+CONFIG_PACKAGE_adguardhome=y
+CONFIG_PACKAGE_luci-app-adguardhome=y
+CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y
+
+# mosdns
+CONFIG_PACKAGE_mosdns=y
+CONFIG_PACKAGE_luci-app-mosdns=y
+CONFIG_PACKAGE_luci-i18n-mosdns-zh-cn=y
+
+#pushbot
+CONFIG_PACKAGE_luci-app-pushbot=y
+
+#qbittorrent
+CONFIG_PACKAGE_luci-app-qbittorrent=y
+CONFIG_PACKAGE_luci-i18n-qbittorrent-zh-cn=y
+CONFIG_PACKAGE_qbittorrent=y
+
+#transmission
+CONFIG_PACKAGE_luci-app-transmission=y
+CONFIG_PACKAGE_luci-i18n-transmission-zh-cn=y
+CONFIG_PACKAGE_transmission-daemon-openssl=y
+CONFIG_PACKAGE_transmission-web-control=y
+
+" >> .config
+
