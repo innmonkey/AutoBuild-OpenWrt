@@ -147,7 +147,7 @@ jobs:
       run: |
         echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
         touch release.txt
-        [ ${UPLOAD_GOFILE} = true && ${{ steps.gofile.outputs.url }} ] && echo "
+        echo "
         💻 架构: ${{ env.DEVICE_NAME }}
 
         📂 源码: ${{ env.REPO_URL }}
