@@ -148,7 +148,7 @@ jobs:
         echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
         touch release.txt
         echo "
-        💻 架构: ${{ env.DEVICE_NAME }}
+        💻 架构: x86-64
 
         📂 源码: ${{ env.REPO_URL }}
 
