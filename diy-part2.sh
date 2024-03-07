@@ -76,7 +76,7 @@ CONFIG_PACKAGE_luci-app-pushbot=y
 #qbittorrent
 CONFIG_PACKAGE_luci-app-qbittorrent=y
 CONFIG_PACKAGE_luci-i18n-qbittorrent-zh-cn=y
-CONFIG_PACKAGE_qbittorrent=y
+#CONFIG_PACKAGE_qbittorrent=y
 
 #transmission
 CONFIG_PACKAGE_luci-app-transmission=y
