@@ -52,10 +52,6 @@ cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argo
 #sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' package/lean/autocore/files/*/index.htm
 
 echo "
-# 额外组件
-CONFIG_GRUB_IMAGES=y
-CONFIG_VMDK_IMAGES=y
-
 # openclash
 CONFIG_PACKAGE_luci-app-openclash=y
 CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y
