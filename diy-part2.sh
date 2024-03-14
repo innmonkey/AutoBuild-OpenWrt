@@ -31,17 +31,6 @@
 #rm -rf feeds/luci/themes/luci-theme-netgear
 #rm -rf feeds/luci/applications/luci-app-mosdns
 
-# 添加额外插件
-#git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
-git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/luci-app-mosdns
-git clone --depth=1 https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
-git clone --depth=1 https://github.com/vernesong/OpenClash package/luci-app-openclash
-
-# Themes
-#git clone --depth=1 -b 18.06 https://github.com/kiddin9/luci-theme-edge package/luci-theme-edge
-#git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
-
 # 更改 Argon 主题背景
 cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
@@ -49,36 +38,56 @@ cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argo
 #sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/files/x86/autocore
 
 # 修改本地时间格式
-#sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' package/lean/autocore/files/*/index.htm
+#sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' package/lean/autocore/files/*/index.html
+
+
+# Git稀疏克隆，只克隆指定目录到本地
+function git_sparse_clone() {
+  branch="$1" repourl="$2" && shift 2
+  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
+  repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
+  cd $repodir && git sparse-checkout set $@
+  mv -f $@ ../package
+  cd .. && rm -rf $repodir
+}
+
+# 添加额外插件
+#git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
+#git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/mosdns
+git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adguardhome
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-openclash
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-jellyfin
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-xunlei
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-mosdns
+#git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-qbittorrent
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-transmission
 
 echo "
 # openclash
 CONFIG_PACKAGE_luci-app-openclash=y
-CONFIG_PACKAGE_luci-i18n-openclash-zh-cn=y
 
 # adguardhome
-CONFIG_PACKAGE_adguardhome=y
 CONFIG_PACKAGE_luci-app-adguardhome=y
-CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y
 
 # mosdns
-CONFIG_PACKAGE_mosdns=y
 CONFIG_PACKAGE_luci-app-mosdns=y
-CONFIG_PACKAGE_luci-i18n-mosdns-zh-cn=y
 
-#pushbot
+# pushbot
 CONFIG_PACKAGE_luci-app-pushbot=y
 
-#qbittorrent
+# Jellyfin
+CONFIG_PACKAGE_luci-app-jellyfin=y
+
+# xunlei
+CONFIG_PACKAGE_luci-app-xunlei=y
+
+# qbittorrent
 CONFIG_PACKAGE_luci-app-qbittorrent=y
-CONFIG_PACKAGE_luci-i18n-qbittorrent-zh-cn=y
-#CONFIG_PACKAGE_qbittorrent=y
 
-#transmission
+# transmission
 CONFIG_PACKAGE_luci-app-transmission=y
-CONFIG_PACKAGE_luci-i18n-transmission-zh-cn=y
-CONFIG_PACKAGE_transmission-daemon-openssl=y
-CONFIG_PACKAGE_transmission-web-control=y
-
 " >> .config
-
