@@ -35,7 +35,7 @@ rm -rf feeds/packages/net/v2ray-geodata
 #rm -rf feeds/luci/applications/luci-app-mosdns
 
 # 更改 Argon 主题背景
-cp -f $GITHUB_WORKSPACE/bg1.jpg feeds/third/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+cp -f $GITHUB_WORKSPACE/bg1.jpg feeds/innmonkey/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # x86 型号只显示 CPU 型号
 #sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/files/x86/autocore
@@ -58,7 +58,7 @@ function git_sparse_clone() {
 }
 
 # 添加额外插件
-git clone https://github.com/innmonkey/luci-theme-argon package/luci-theme-argon
+#git clone https://github.com/innmonkey/luci-theme-argon package/luci-theme-argon
 #git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
 #git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/mosdns
 #git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
