@@ -26,9 +26,11 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
 
 # 移除要替换的包
-#rm -rf feeds/packages/net/mosdns
-#rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/luci/themes/luci-theme-bootstrap
+rm -rf feeds/packages/net/v2ray-geodata
 #rm -rf feeds/luci/themes/luci-theme-netgear
+#rm -rf feeds/packages/net/mosdns
 #rm -rf feeds/luci/applications/luci-app-mosdns
 
 # 更改 Argon 主题背景
@@ -40,6 +42,9 @@ cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argo
 # 修改本地时间格式
 #sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' package/lean/autocore/files/*/index.html
 
+# 加入OpenClash核心
+chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
+$GITHUB_WORKSPACE/preset-clash-core.sh
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
@@ -54,19 +59,23 @@ function git_sparse_clone() {
 # 添加额外插件
 #git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
 #git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/mosdns
-git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+#git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+#git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adguardhome
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-openclash
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-jellyfin
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-xunlei
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adguardhome
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-openclash
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-jellyfin
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-xunlei
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-mosdns
 #git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-qbittorrent
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-transmission
 
 echo "
+# luci-theme-argon
+CONFIG_PACKAGE_luci-theme-argon
+CONFIG_PACKAGE_luci-app-argon-config
+
 # openclash
 CONFIG_PACKAGE_luci-app-openclash=y
 
