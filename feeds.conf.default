@@ -1,1 +1,1 @@
-src-git  https://github.com/innmonkey/openwrt-packages
+src-git  https://github.com/innmonkey/openwrt-packages.git;master
