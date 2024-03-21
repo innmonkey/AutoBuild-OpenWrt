@@ -75,8 +75,8 @@ git clone https://github.com/innmonkey/luci-theme-argon package/luci-theme-argon
 
 echo "
 # luci-theme-argon
-CONFIG_PACKAGE_luci-theme-argon
-CONFIG_PACKAGE_luci-app-argon-config
+CONFIG_PACKAGE_luci-theme-argon=y
+CONFIG_PACKAGE_luci-app-argon-config=y
 
 # openclash
 CONFIG_PACKAGE_luci-app-openclash=y
