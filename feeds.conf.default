@@ -1,0 +1,8 @@
+src-git packages https://github.com/coolsnowwolf/packages^db79fd2
+src-git luci https://github.com/coolsnowwolf/luci^c79d23b
+src-git routing https://github.com/coolsnowwolf/routing^3aefda7
+src-git telephony https://git.openwrt.org/feed/telephony.git^dc889d8
+src-git istore https://github.com/linkease/istore^4c5098f
+src-git nas https://github.com/linkease/nas-packages.git^511fcee
+src-git nas_luci https://github.com/linkease/nas-packages-luci.git^e94cd4d
+src-git third https://github.com/innmonkey/openwrt-packages.git;master
