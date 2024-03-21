@@ -101,4 +101,12 @@ CONFIG_PACKAGE_luci-app-qbittorrent=y
 
 # transmission
 CONFIG_PACKAGE_luci-app-transmission=y
+
+# nas
+CONFIG_PACKAGE_luci-app-diskman=y
+CONFIG_PACKAGE_luci-app-diskman_INCLUDE_btrfs_progs=y
+CONFIG_PACKAGE_luci-app-diskman_INCLUDE_lsblk=y
+CONFIG_PACKAGE_luci-app-dockerman=y
+CONFIG_PACKAGE_luci-app-linkease=y
+CONFIG_PACKAGE_luci-app-quickstart=y
 " >> .config
