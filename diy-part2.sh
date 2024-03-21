@@ -27,6 +27,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 
 # 移除要替换的包
 rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/kiddin9/luci-theme-argon
 rm -rf feeds/luci/themes/luci-theme-bootstrap
 rm -rf feeds/packages/net/v2ray-geodata
 #rm -rf feeds/luci/themes/luci-theme-netgear
@@ -34,7 +35,7 @@ rm -rf feeds/packages/net/v2ray-geodata
 #rm -rf feeds/luci/applications/luci-app-mosdns
 
 # 更改 Argon 主题背景
-cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+cp -f $GITHUB_WORKSPACE/bg1.jpg feeds/third/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # x86 型号只显示 CPU 型号
 #sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/files/x86/autocore
