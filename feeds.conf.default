@@ -1,5 +1,2 @@
-src-git packages https://github.com/coolsnowwolf/packages^db79fd2
-src-git luci https://github.com/coolsnowwolf/luci^c79d23b
-src-git routing https://github.com/coolsnowwolf/routing^3aefda7
-src-git telephony https://git.openwrt.org/feed/telephony.git^dc889d8
-src-git third https://github.com/innmonkey/openwrt-packages.git;master
+src-git third https://github.com/innmonkey/openwrt-packages
+src-git kiddin9 https://github.com/kiddin9/openwrt-packages
