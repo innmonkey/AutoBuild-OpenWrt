@@ -43,6 +43,8 @@ git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-xun
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-qbittorrent
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-transmission
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-linkease linkease luci-lib-taskd
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-filebrowser filebrowser
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-aliddns
 
 # 更改 Argon 主题背景
 cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
@@ -58,7 +60,7 @@ sed -i 's/CONFIG_PACKAGE_luci-app-samba4=y/CONFIG_PACKAGE_luci-app-samba4=n/' .c
 sed -i 's/CONFIG_PACKAGE_luci-app-wol=y/CONFIG_PACKAGE_luci-app-wol=n/' .config
 sed -i 's/CONFIG_PACKAGE_luci-app-accesscontrol=y/CONFIG_PACKAGE_luci-app-accesscontrol=n/' .config
 sed -i 's/CONFIG_PACKAGE_luci-app-arpbind=y/CONFIG_PACKAGE_luci-app-arpbind=n/' .config
-
+sed -i 's/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n/' .config
 
 echo "
 # luci-theme-argon
@@ -101,4 +103,13 @@ CONFIG_PACKAGE_luci-app-diskman=y
 CONFIG_PACKAGE_luci-app-dockerman=y
 CONFIG_PACKAGE_luci-app-linkease=y
 CONFIG_PACKAGE_luci-app-quickstart=y
+
+# uhttpd
+CONFIG_PACKAGE_luci-app-uhttpd=y
+
+# 阿里DDNS
+CONFIG_PACKAGE_luci-app-aliddns=y
+
+# filebrowser
+CONFIG_PACKAGE_luci-app-filebrowser=y
 " >> .config
