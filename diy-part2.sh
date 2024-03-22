@@ -35,7 +35,7 @@ function git_sparse_clone() {
 }
 
 # 添加额外插件
-git clone https://github.com/innmonkey/luci-theme-argon package/luci-theme-argon
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-argon-config
 
 # 移除 bootstrap 主题
