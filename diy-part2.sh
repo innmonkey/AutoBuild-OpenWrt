@@ -67,12 +67,12 @@ git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adg
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-openclash
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-jellyfin
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-xunlei
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-mosdns
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-mosdns mosdns v2ray-geodata
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-pushbot
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-qbittorrent
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-qbittorrent v2ray-geodata
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-transmission
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-argon-config
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-diskman luci-app-linkease luci-app-quickstart
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-diskman luci-app-linkease luci-app-quickstart quickstart linkease luci-lib-taskd
 
 echo "
 # luci-theme-argon
