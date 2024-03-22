@@ -16,10 +16,9 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 # 移除要替换的包
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/themes/luci-theme-bootstrap
-#rm -rf feeds/packages/net/v2ray-geodata
-#rm -rf feeds/luci/themes/luci-theme-netgear
-#rm -rf feeds/packages/net/mosdns
-#rm -rf feeds/luci/applications/luci-app-mosdns
+rm -rf feeds/packages/net/v2ray-geodata
+rm -rf feeds/luci/applications/luci-app-vsftpd
+
 
 # 更改 Argon 主题背景
 cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
@@ -37,17 +36,70 @@ function git_sparse_clone() {
 # 添加额外插件
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-argon-config
+git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
+
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adguardhome
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-openclash
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-jellyfin
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-xunlei
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-qbittorrent
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-transmission
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-linkease linkease luci-lib-taskd
 
 # 移除 bootstrap 主题
 sed -i 's/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-bootstrap=n/' .config
 
-# 移除 zerotier、KMS
+# 移除 zerotier、KMS、网络唤醒、网络共享、FTP
 sed -i 's/CONFIG_PACKAGE_luci-app-zerotier=y/CONFIG_PACKAGE_luci-app-zerotier=n/' .config
 sed -i 's/CONFIG_PACKAGE_luci-app-vsftpd=y/CONFIG_PACKAGE_luci-app-vsftpd=n/' .config
+sed -i 's/CONFIG_PACKAGE_luci-app-vlmcsd=y/CONFIG_PACKAGE_luci-app-vlmcsd=n/' .config
+sed -i 's/CONFIG_PACKAGE_luci-app-samba4=y/CONFIG_PACKAGE_luci-app-samba4=n/' .config
+sed -i 's/CONFIG_PACKAGE_luci-app-wol=y/CONFIG_PACKAGE_luci-app-wol=n/' .config
+sed -i 's/CONFIG_PACKAGE_luci-app-accesscontrol=y/CONFIG_PACKAGE_luci-app-accesscontrol=n/' .config
+sed -i 's/CONFIG_PACKAGE_luci-app-arpbind=y/CONFIG_PACKAGE_luci-app-arpbind=n/' .config
 
 
 echo "
 # luci-theme-argon
 CONFIG_PACKAGE_luci-theme-argon=y
 CONFIG_PACKAGE_luci-app-argon-config=y
+
+# openclash
+CONFIG_PACKAGE_luci-app-openclash=y
+
+# adguardhome
+CONFIG_PACKAGE_luci-app-adguardhome=y
+
+# mosdns
+CONFIG_PACKAGE_luci-app-mosdns=y
+
+# pushbot
+CONFIG_PACKAGE_luci-app-pushbot=y
+
+# Jellyfin
+CONFIG_PACKAGE_luci-app-jellyfin=y
+CONFIG_PACKAGE_app-meta-jellyfin=y
+CONFIG_PACKAGE_luci-i18n-jellyfin-zh-cn=y
+
+# xunlei
+CONFIG_PACKAGE_luci-app-xunlei=y
+
+# qbittorrent
+CONFIG_PACKAGE_luci-app-qbittorrent=y
+
+# transmission
+CONFIG_PACKAGE_luci-app-transmission=y
+CONFIG_PACKAGE_transmission-daemon=y
+CONFIG_PACKAGE_luci-i18n-transmission-zh-cn=y
+CONFIG_PACKAGE_app-meta-transmission=y
+CONFIG_PACKAGE_transmission-web-control=y
+CONFIG_PACKAGE_transmission-daemon-openssl=y
+
+# nas
+CONFIG_PACKAGE_luci-app-diskman=y
+CONFIG_PACKAGE_luci-app-dockerman=y
+CONFIG_PACKAGE_luci-app-linkease=y
+CONFIG_PACKAGE_luci-app-quickstart=y
 " >> .config
