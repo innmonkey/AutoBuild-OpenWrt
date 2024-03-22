@@ -31,10 +31,11 @@ rm -rf feeds/luci/themes/luci-theme-bootstrap
 rm -rf feeds/packages/net/v2ray-geodata
 #rm -rf feeds/luci/themes/luci-theme-netgear
 #rm -rf feeds/packages/net/mosdns
-#rm -rf feeds/luci/applications/luci-app-mosdns
+rm -rf feeds/luci/applications/luci-app-mosdns
 
 # 更改 Argon 主题背景
-cp -f $GITHUB_WORKSPACE/bg1.jpg feeds/innmonkey/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+#cp -f $GITHUB_WORKSPACE/bg1.jpg feeds/innmonkey/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # x86 型号只显示 CPU 型号
 #sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/files/x86/autocore
@@ -58,17 +59,14 @@ function git_sparse_clone() {
 
 # 添加额外插件
 git clone https://github.com/innmonkey/luci-theme-argon package/luci-theme-argon
-#git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
-#git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
-#git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
-#git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
+git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adguardhome
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-openclash
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-jellyfin
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-xunlei
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-mosdns mosdns v2ray-geodata
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-pushbot
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-qbittorrent
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-transmission
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-argon-config
@@ -93,6 +91,8 @@ CONFIG_PACKAGE_luci-app-pushbot=y
 
 # Jellyfin
 CONFIG_PACKAGE_luci-app-jellyfin=y
+CONFIG_PACKAGE_app-meta-jellyfin=y
+CONFIG_PACKAGE_luci-i18n-jellyfin-zh-cn=y
 
 # xunlei
 CONFIG_PACKAGE_luci-app-xunlei=y
@@ -102,6 +102,11 @@ CONFIG_PACKAGE_luci-app-qbittorrent=y
 
 # transmission
 CONFIG_PACKAGE_luci-app-transmission=y
+CONFIG_PACKAGE_transmission-daemon=y
+CONFIG_PACKAGE_luci-i18n-transmission-zh-cn=y
+CONFIG_PACKAGE_app-meta-transmission=y
+CONFIG_PACKAGE_transmission-web-control=y
+CONFIG_PACKAGE_transmission-daemon-openssl=y
 
 # nas
 CONFIG_PACKAGE_luci-app-diskman=y
