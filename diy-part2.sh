@@ -19,10 +19,6 @@ rm -rf feeds/luci/themes/luci-theme-bootstrap
 rm -rf feeds/packages/net/v2ray-geodata
 rm -rf feeds/luci/applications/luci-app-vsftpd
 
-
-# 更改 Argon 主题背景
-cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
-
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
   branch="$1" repourl="$2" && shift 2
@@ -47,6 +43,9 @@ git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-xun
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-qbittorrent
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-transmission
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-linkease linkease luci-lib-taskd
+
+# 更改 Argon 主题背景
+cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # 移除 bootstrap 主题
 sed -i 's/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-bootstrap=n/' .config
