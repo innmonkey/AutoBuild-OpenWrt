@@ -27,7 +27,6 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 
 # 移除要替换的包
 rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf feeds/kiddin9/luci-theme-argon
 rm -rf feeds/luci/themes/luci-theme-bootstrap
 rm -rf feeds/packages/net/v2ray-geodata
 #rm -rf feeds/luci/themes/luci-theme-netgear
