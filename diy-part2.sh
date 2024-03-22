@@ -38,6 +38,14 @@ function git_sparse_clone() {
 git clone https://github.com/innmonkey/luci-theme-argon package/luci-theme-argon
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-argon-config
 
+# 移除 bootstrap 主题
+sed -i 's/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-bootstrap=n/' .config
+
+# 移除 zerotier、KMS
+sed -i 's/CONFIG_PACKAGE_luci-app-zerotier=y/CONFIG_PACKAGE_luci-app-zerotier=n/' .config
+sed -i 's/CONFIG_PACKAGE_luci-app-vsftpd=y/CONFIG_PACKAGE_luci-app-vsftpd=n/' .config
+
+
 echo "
 # luci-theme-argon
 CONFIG_PACKAGE_luci-theme-argon=y
