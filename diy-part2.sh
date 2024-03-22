@@ -58,20 +58,22 @@ function git_sparse_clone() {
 }
 
 # 添加额外插件
-#git clone https://github.com/innmonkey/luci-theme-argon package/luci-theme-argon
+git clone https://github.com/innmonkey/luci-theme-argon package/luci-theme-argon
 #git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/luci-app-adguardhome
-#git clone --depth=1 https://github.com/sbwml/luci-app-mosdns package/mosdns
 #git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 #git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
-
-#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adguardhome
-#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-openclash
-#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-jellyfin
-#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-xunlei
-#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-mosdns
 #git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
-#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-qbittorrent
-#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-transmission
+
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adguardhome
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-openclash
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-jellyfin
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-xunlei
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-mosdns
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-pushbot
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-qbittorrent
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-transmission
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-argon-config
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-diskman luci-app-linkease luci-app-quickstart
 
 echo "
 # luci-theme-argon
@@ -104,8 +106,6 @@ CONFIG_PACKAGE_luci-app-transmission=y
 
 # nas
 CONFIG_PACKAGE_luci-app-diskman=y
-CONFIG_PACKAGE_luci-app-diskman_INCLUDE_btrfs_progs=y
-CONFIG_PACKAGE_luci-app-diskman_INCLUDE_lsblk=y
 CONFIG_PACKAGE_luci-app-dockerman=y
 CONFIG_PACKAGE_luci-app-linkease=y
 CONFIG_PACKAGE_luci-app-quickstart=y
