@@ -45,7 +45,7 @@ git clone https://github.com/zzsj0928/luci-app-pushbot package/luci-app-pushbot
 
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-adguardhome
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-openclash
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-jellyfin
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-jellyfin luci-lib-taskd
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-xunlei
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-qbittorrent
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-transmission
