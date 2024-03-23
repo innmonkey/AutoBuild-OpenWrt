@@ -25,6 +25,7 @@ rm -rf feeds/luci/applications/luci-app-vlmcsd
 rm -rf feeds/luci/applications/luci-app-accesscontrol
 rm -rf feeds/luci/applications/luci-app-ddns
 rm -rf feeds/luci/applications/luci-app-zerotier
+rm -rf feeds/luci/applications/luci-app-autoreboot
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
@@ -68,6 +69,7 @@ sed -i 's/CONFIG_PACKAGE_luci-app-wol=y/CONFIG_PACKAGE_luci-app-wol=n/' .config
 sed -i 's/CONFIG_PACKAGE_luci-app-accesscontrol=y/CONFIG_PACKAGE_luci-app-accesscontrol=n/' .config
 sed -i 's/CONFIG_PACKAGE_luci-app-arpbind=y/CONFIG_PACKAGE_luci-app-arpbind=n/' .config
 sed -i 's/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n/' .config
+sed -i 's/CONFIG_PACKAGE_luci-app-autoreboot=y/CONFIG_PACKAGE_luci-app-autoreboot=n/' .config
 
 echo "
 # luci-theme-argon
@@ -75,27 +77,27 @@ CONFIG_PACKAGE_luci-theme-argon=y
 CONFIG_PACKAGE_luci-app-argon-config=y
 
 # openclash
-CONFIG_PACKAGE_luci-app-openclash=y
+#CONFIG_PACKAGE_luci-app-openclash=y
 
 # adguardhome
-CONFIG_PACKAGE_luci-app-adguardhome=y
+#CONFIG_PACKAGE_luci-app-adguardhome=y
 
 # mosdns
 #CONFIG_PACKAGE_luci-app-mosdns=y
 
 # pushbot
-CONFIG_PACKAGE_luci-app-pushbot=y
+#CONFIG_PACKAGE_luci-app-pushbot=y
 
 # Jellyfin
-CONFIG_PACKAGE_luci-app-jellyfin=y
+#CONFIG_PACKAGE_luci-app-jellyfin=y
 #CONFIG_PACKAGE_app-meta-jellyfin=y
 #CONFIG_PACKAGE_luci-i18n-jellyfin-zh-cn=y
 
 # xunlei
-CONFIG_PACKAGE_luci-app-xunlei=y
+#CONFIG_PACKAGE_luci-app-xunlei=y
 
 # qbittorrent
-CONFIG_PACKAGE_luci-app-qbittorrent=y
+#CONFIG_PACKAGE_luci-app-qbittorrent=y
 
 # transmission
 #CONFIG_PACKAGE_luci-app-transmission=y
@@ -106,17 +108,16 @@ CONFIG_PACKAGE_luci-app-qbittorrent=y
 #CONFIG_PACKAGE_transmission-daemon-openssl=y
 
 # nas
-#CONFIG_PACKAGE_luci-app-diskman=y
-#CONFIG_PACKAGE_luci-app-dockerman=y
+CONFIG_PACKAGE_luci-app-dockerman=y
 #CONFIG_PACKAGE_luci-app-linkease=y
 #CONFIG_PACKAGE_luci-app-quickstart=y
 
 # uhttpd
-CONFIG_PACKAGE_luci-app-uhttpd=y
+#CONFIG_PACKAGE_luci-app-uhttpd=y
 
 # 阿里DDNS
-CONFIG_PACKAGE_luci-app-aliddns=y
+#CONFIG_PACKAGE_luci-app-aliddns=y
 
 # filebrowser
-CONFIG_PACKAGE_luci-app-filebrowser=y
+#CONFIG_PACKAGE_luci-app-filebrowser=y
 " >> .config
