@@ -50,9 +50,10 @@ git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-jel
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-xunlei
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-qbittorrent
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-transmission
-#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-linkease linkease luci-lib-taskd
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-linkease linkease
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-filebrowser filebrowser
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-aliddns
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-dockerman dockerd
 
 # 更改 Argon 主题背景
 cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
