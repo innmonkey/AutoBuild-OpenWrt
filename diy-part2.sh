@@ -81,15 +81,15 @@ CONFIG_PACKAGE_luci-app-openclash=y
 CONFIG_PACKAGE_luci-app-adguardhome=y
 
 # mosdns
-CONFIG_PACKAGE_luci-app-mosdns=y
+#CONFIG_PACKAGE_luci-app-mosdns=y
 
 # pushbot
 CONFIG_PACKAGE_luci-app-pushbot=y
 
 # Jellyfin
 CONFIG_PACKAGE_luci-app-jellyfin=y
-CONFIG_PACKAGE_app-meta-jellyfin=y
-CONFIG_PACKAGE_luci-i18n-jellyfin-zh-cn=y
+#CONFIG_PACKAGE_app-meta-jellyfin=y
+#CONFIG_PACKAGE_luci-i18n-jellyfin-zh-cn=y
 
 # xunlei
 CONFIG_PACKAGE_luci-app-xunlei=y
@@ -98,12 +98,12 @@ CONFIG_PACKAGE_luci-app-xunlei=y
 CONFIG_PACKAGE_luci-app-qbittorrent=y
 
 # transmission
-CONFIG_PACKAGE_luci-app-transmission=y
-CONFIG_PACKAGE_transmission-daemon=y
-CONFIG_PACKAGE_luci-i18n-transmission-zh-cn=y
-CONFIG_PACKAGE_app-meta-transmission=y
-CONFIG_PACKAGE_transmission-web-control=y
-CONFIG_PACKAGE_transmission-daemon-openssl=y
+#CONFIG_PACKAGE_luci-app-transmission=y
+#CONFIG_PACKAGE_transmission-daemon=y
+#CONFIG_PACKAGE_luci-i18n-transmission-zh-cn=y
+#CONFIG_PACKAGE_app-meta-transmission=y
+#CONFIG_PACKAGE_transmission-web-control=y
+#CONFIG_PACKAGE_transmission-daemon-openssl=y
 
 # nas
 #CONFIG_PACKAGE_luci-app-diskman=y
