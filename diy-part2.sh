@@ -49,7 +49,7 @@ git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-jel
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-xunlei
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-qbittorrent
 #git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-transmission
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-linkease linkease luci-lib-taskd
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-linkease linkease luci-lib-taskd
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-filebrowser filebrowser
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-aliddns
 
@@ -106,10 +106,10 @@ CONFIG_PACKAGE_transmission-web-control=y
 CONFIG_PACKAGE_transmission-daemon-openssl=y
 
 # nas
-CONFIG_PACKAGE_luci-app-diskman=y
-CONFIG_PACKAGE_luci-app-dockerman=y
-CONFIG_PACKAGE_luci-app-linkease=y
-CONFIG_PACKAGE_luci-app-quickstart=y
+#CONFIG_PACKAGE_luci-app-diskman=y
+#CONFIG_PACKAGE_luci-app-dockerman=y
+#CONFIG_PACKAGE_luci-app-linkease=y
+#CONFIG_PACKAGE_luci-app-quickstart=y
 
 # uhttpd
 CONFIG_PACKAGE_luci-app-uhttpd=y
