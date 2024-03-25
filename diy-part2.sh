@@ -25,6 +25,7 @@ rm -rf feeds/luci/applications/luci-app-accesscontrol
 rm -rf feeds/luci/applications/luci-app-ddns
 rm -rf feeds/luci/applications/luci-app-zerotier
 rm -rf feeds/luci/applications/luci-app-autoreboot
+#rm -rf feeds/packages/lang/golang
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
@@ -39,6 +40,7 @@ function git_sparse_clone() {
 # 添加额外插件
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-argon-config
+#git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 
 # 更改 Argon 主题背景
 cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
