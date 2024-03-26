@@ -11,20 +11,18 @@
 #
 
 # Modify default theme
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+#sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
 # 移除要替换的包
-rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf feeds/luci/applications/luci-app-vsftpd
-rm -rf feeds/luci/applications/luci-app-samba4
-rm -rf feeds/luci/applications/luci-app-wol
-rm -rf feeds/luci/applications/luci-app-arpbind
-rm -rf feeds/luci/applications/luci-app-vlmcsd
-rm -rf feeds/luci/applications/luci-app-accesscontrol
-rm -rf feeds/luci/applications/luci-app-ddns
-rm -rf feeds/luci/applications/luci-app-zerotier
-rm -rf feeds/luci/applications/luci-app-autoreboot
-#rm -rf feeds/packages/lang/golang
+#rm -rf feeds/luci/applications/luci-app-vsftpd
+#rm -rf feeds/luci/applications/luci-app-samba4
+#rm -rf feeds/luci/applications/luci-app-wol
+#rm -rf feeds/luci/applications/luci-app-arpbind
+#rm -rf feeds/luci/applications/luci-app-vlmcsd
+#rm -rf feeds/luci/applications/luci-app-accesscontrol
+#rm -rf feeds/luci/applications/luci-app-ddns
+#rm -rf feeds/luci/applications/luci-app-zerotier
+#rm -rf feeds/luci/applications/luci-app-autoreboot
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
@@ -37,30 +35,23 @@ function git_sparse_clone() {
 }
 
 # 添加额外插件
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-argon-config
+#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+#git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-argon-config
 #git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 
 # 更改 Argon 主题背景
-cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+#cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # 移除 bootstrap 主题
 #sed -i 's/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-bootstrap=n/' .config
 
 # 移除 zerotier、KMS、网络唤醒、网络共享、FTP
-sed -i 's/CONFIG_PACKAGE_luci-app-zerotier=y/CONFIG_PACKAGE_luci-app-zerotier=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-app-vsftpd=y/CONFIG_PACKAGE_luci-app-vsftpd=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-app-vlmcsd=y/CONFIG_PACKAGE_luci-app-vlmcsd=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-app-samba4=y/CONFIG_PACKAGE_luci-app-samba4=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-app-wol=y/CONFIG_PACKAGE_luci-app-wol=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-app-accesscontrol=y/CONFIG_PACKAGE_luci-app-accesscontrol=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-app-arpbind=y/CONFIG_PACKAGE_luci-app-arpbind=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n/' .config
-sed -i 's/CONFIG_PACKAGE_luci-app-autoreboot=y/CONFIG_PACKAGE_luci-app-autoreboot=n/' .config
-
-echo "
-# luci-theme-argon
-CONFIG_PACKAGE_luci-theme-argon=y
-CONFIG_PACKAGE_luci-app-argon-config=y
-
-" >> .config
+#sed -i 's/CONFIG_PACKAGE_luci-app-zerotier=y/CONFIG_PACKAGE_luci-app-zerotier=n/' .config
+#sed -i 's/CONFIG_PACKAGE_luci-app-vsftpd=y/CONFIG_PACKAGE_luci-app-vsftpd=n/' .config
+#sed -i 's/CONFIG_PACKAGE_luci-app-vlmcsd=y/CONFIG_PACKAGE_luci-app-vlmcsd=n/' .config
+#sed -i 's/CONFIG_PACKAGE_luci-app-samba4=y/CONFIG_PACKAGE_luci-app-samba4=n/' .config
+#sed -i 's/CONFIG_PACKAGE_luci-app-wol=y/CONFIG_PACKAGE_luci-app-wol=n/' .config
+#sed -i 's/CONFIG_PACKAGE_luci-app-accesscontrol=y/CONFIG_PACKAGE_luci-app-accesscontrol=n/' .config
+#sed -i 's/CONFIG_PACKAGE_luci-app-arpbind=y/CONFIG_PACKAGE_luci-app-arpbind=n/' .config
+#sed -i 's/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n/' .config
+#sed -i 's/CONFIG_PACKAGE_luci-app-autoreboot=y/CONFIG_PACKAGE_luci-app-autoreboot=n/' .config
