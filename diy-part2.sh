@@ -15,7 +15,6 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 
 # 移除要替换的包
 rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf feeds/luci/themes/luci-theme-bootstrap
 rm -rf feeds/luci/applications/luci-app-vsftpd
 rm -rf feeds/luci/applications/luci-app-samba4
 rm -rf feeds/luci/applications/luci-app-wol
@@ -46,7 +45,7 @@ git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-arg
 cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # 移除 bootstrap 主题
-sed -i 's/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-bootstrap=n/' .config
+#sed -i 's/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-bootstrap=n/' .config
 
 # 移除 zerotier、KMS、网络唤醒、网络共享、FTP
 sed -i 's/CONFIG_PACKAGE_luci-app-zerotier=y/CONFIG_PACKAGE_luci-app-zerotier=n/' .config
