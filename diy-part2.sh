@@ -37,6 +37,9 @@ git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-lin
 #git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
 #git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
+# 加入OpenClash核心
+chmod -R a+x $GITHUB_WORKSPACE/preset-clash-core.sh
+$GITHUB_WORKSPACE/preset-clash-core.sh
 
 echo "
 # openclash
