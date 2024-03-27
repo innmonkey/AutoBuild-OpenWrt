@@ -29,7 +29,7 @@ function git_sparse_clone() {
 # 添加额外插件
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-argon-config
-git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-openclash
+git_sparse_clone master https://github.com/vernesong/OpenClash luci-app-openclash
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-aliddns
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-filebrowser filebrowser
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-jellyfin luci-lib-taskd luci-lib-xterm taskd
