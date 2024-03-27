@@ -65,7 +65,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 # 更改 Argon 主题背景
 cp -f $GITHUB_WORKSPACE/argon/img/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 cp -f $GITHUB_WORKSPACE/argon/img/argon.svg package/luci-theme-argon/htdocs/luci-static/argon/img/argon.svg
-cp -f $GITHUB_WORKSPACE/argon/background/background.jpg package/luci-theme-argon/htdocs/luci-static/argon/background/background.jpg
+cp -f $GITHUB_WORKSPACE/argon/background/background.jpg package/luci-theme-argon/htdocs/luci-static/argon/background/
 cp -f $GITHUB_WORKSPACE/argon/favicon.ico package/luci-theme-argon/htdocs/luci-static/argon/favicon.ico
 cp -f $GITHUB_WORKSPACE/argon/icon/android-icon-192x192.png package/luci-theme-argon/htdocs/luci-static/argon/icon/android-icon-192x192.png
 cp -f $GITHUB_WORKSPACE/argon/icon/apple-icon-144x144.png package/luci-theme-argon/htdocs/luci-static/argon/icon/apple-icon-144x144.png
