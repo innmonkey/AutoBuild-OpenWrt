@@ -11,7 +11,7 @@
 #
 
 # Modify default theme
-#sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
 # 移除要替换的包
 #rm -rf feeds/luci/applications/luci-app-vsftpd
@@ -40,18 +40,8 @@ function git_sparse_clone() {
 #git clone https://github.com/kenzok8/golang feeds/packages/lang/golang
 
 # 更改 Argon 主题背景
-#cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+#cp -f $GITHUB_WORKSPACE/bg1.jpg feeds/luci/themes/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # 移除 bootstrap 主题
 #sed -i 's/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-bootstrap=n/' .config
 
-# 移除 zerotier、KMS、网络唤醒、网络共享、FTP
-#sed -i 's/CONFIG_PACKAGE_luci-app-zerotier=y/CONFIG_PACKAGE_luci-app-zerotier=n/' .config
-#sed -i 's/CONFIG_PACKAGE_luci-app-vsftpd=y/CONFIG_PACKAGE_luci-app-vsftpd=n/' .config
-#sed -i 's/CONFIG_PACKAGE_luci-app-vlmcsd=y/CONFIG_PACKAGE_luci-app-vlmcsd=n/' .config
-#sed -i 's/CONFIG_PACKAGE_luci-app-samba4=y/CONFIG_PACKAGE_luci-app-samba4=n/' .config
-#sed -i 's/CONFIG_PACKAGE_luci-app-wol=y/CONFIG_PACKAGE_luci-app-wol=n/' .config
-#sed -i 's/CONFIG_PACKAGE_luci-app-accesscontrol=y/CONFIG_PACKAGE_luci-app-accesscontrol=n/' .config
-#sed -i 's/CONFIG_PACKAGE_luci-app-arpbind=y/CONFIG_PACKAGE_luci-app-arpbind=n/' .config
-#sed -i 's/CONFIG_PACKAGE_luci-app-ddns=y/CONFIG_PACKAGE_luci-app-ddns=n/' .config
-#sed -i 's/CONFIG_PACKAGE_luci-app-autoreboot=y/CONFIG_PACKAGE_luci-app-autoreboot=n/' .config
