@@ -12,10 +12,9 @@
 
 # 移除要替换的包
 rm -rf feeds/luci/themes/luci-theme-argon
-#rm -rf feeds/luci/applications/luci-app-samba4
-rm -rf feeds/packages/net/v2ray-geodata
-rm -rf feeds/packages/net/mosdns
-rm -rf feeds/luci/applications/luci-app-mosdns
+#rm -rf feeds/packages/net/v2ray-geodata
+#rm -rf feeds/packages/net/mosdns
+#rm -rf feeds/luci/applications/luci-app-mosdns
 
 # Git稀疏克隆，只克隆指定目录到本地
 function git_sparse_clone() {
@@ -30,38 +29,18 @@ function git_sparse_clone() {
 # 添加额外插件
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-argon-config
-
-git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-openclash
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-aliddns
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-filebrowser filebrowser
 git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-jellyfin luci-lib-taskd
+git_sparse_clone master https://github.com/kiddin9/openwrt-packages luci-app-linkease linkease
+#git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+#git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
 
 
 echo "
-# 额外组件
-CONFIG_GRUB_IMAGES=y
-CONFIG_VMDK_IMAGES=y
-
 # openclash
 CONFIG_PACKAGE_luci-app-openclash=y
-
-# mosdns
-#CONFIG_PACKAGE_luci-app-mosdns=y
-
-# pushbot
-CONFIG_PACKAGE_luci-app-pushbot=y
-
-# Jellyfin
-CONFIG_PACKAGE_luci-app-jellyfin=y
-
-# qbittorrent
-CONFIG_PACKAGE_luci-app-qbittorrent=y
-
-# transmission
-CONFIG_PACKAGE_luci-app-transmission=y
-CONFIG_PACKAGE_transmission-web-control=y
 
 # 阿里DDNS
 CONFIG_PACKAGE_luci-app-aliddns=y
@@ -69,16 +48,34 @@ CONFIG_PACKAGE_luci-app-aliddns=y
 # filebrowser
 CONFIG_PACKAGE_luci-app-filebrowser=y
 
+# Jellyfin
+CONFIG_PACKAGE_luci-app-jellyfin=y
+
+# 易有云
+CONFIG_PACKAGE_luci-app-linkease=y
+
 " >> .config
 
 # 修改默认IP
-# sed -i 's/192.168.1.1/192.168.0.2/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.0.2/g' package/base-files/files/bin/config_generate
 
 # 修改默认主题
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
 # 更改 Argon 主题背景
 cp -f $GITHUB_WORKSPACE/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+cp -f $GITHUB_WORKSPACE/argon/img/bg1.jpg package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+cp -f $GITHUB_WORKSPACE/argon/img/argon.svg package/luci-theme-argon/htdocs/luci-static/argon/img/argon.svg
+cp -f $GITHUB_WORKSPACE/argon/background/background.jpg package/luci-theme-argon/htdocs/luci-static/argon/background/background.jpg
+cp -f $GITHUB_WORKSPACE/argon/favicon.ico package/luci-theme-argon/htdocs/luci-static/argon/favicon.ico
+cp -f $GITHUB_WORKSPACE/argon/icon/android-icon-192x192.png package/luci-theme-argon/htdocs/luci-static/argon/icon/android-icon-192x192.png
+cp -f $GITHUB_WORKSPACE/argon/icon/apple-icon-144x144.png package/luci-theme-argon/htdocs/luci-static/argon/icon/apple-icon-144x144.png
+cp -f $GITHUB_WORKSPACE/argon/icon/apple-icon-60x60.png package/luci-theme-argon/htdocs/luci-static/argon/icon/apple-icon-60x60.png
+cp -f $GITHUB_WORKSPACE/argon/icon/apple-icon-72x72.png package/luci-theme-argon/htdocs/luci-static/argon/icon/apple-icon-72x72.png
+cp -f $GITHUB_WORKSPACE/argon/icon/favicon-16x16.png package/luci-theme-argon/htdocs/luci-static/argon/icon/favicon-16x16.png
+cp -f $GITHUB_WORKSPACE/argon/icon/favicon-32x32.png package/luci-theme-argon/htdocs/luci-static/argon/icon/favicon-32x32.png
+cp -f $GITHUB_WORKSPACE/argon/icon/favicon-96x96.png package/luci-theme-argon/htdocs/luci-static/argon/icon/favicon-96x96.png
+cp -f $GITHUB_WORKSPACE/argon/icon/ms-icon-144x144.png package/luci-theme-argon/htdocs/luci-static/argon/icon/ms-icon-144x144.png
 
 # x86 型号只显示 CPU 型号
 sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' package/lean/autocore/files/x86/autocore
