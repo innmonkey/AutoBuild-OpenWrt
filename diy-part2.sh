@@ -41,19 +41,19 @@ $GITHUB_WORKSPACE/preset-clash-core.sh
 
 echo "
 # openclash
-CONFIG_PACKAGE_luci-app-openclash=y
+#CONFIG_PACKAGE_luci-app-openclash=y
 
 # 阿里DDNS
-CONFIG_PACKAGE_luci-app-aliddns=y
+#CONFIG_PACKAGE_luci-app-aliddns=y
 
 # filebrowser
-CONFIG_PACKAGE_luci-app-filebrowser=y
+#CONFIG_PACKAGE_luci-app-filebrowser=y
 
 # Jellyfin
-CONFIG_PACKAGE_luci-app-jellyfin=y
+#CONFIG_PACKAGE_luci-app-jellyfin=y
 
 # 易有云
-CONFIG_PACKAGE_luci-app-linkease=y
+#CONFIG_PACKAGE_luci-app-linkease=y
 
 " >> .config
 
